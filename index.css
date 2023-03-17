@@ -1,3 +1,41 @@
-#container{
+#body{
     background-color: aqua;
+}
+.logo{
+    width: 60px;
+    border-radius: 30px;
+    margin: 8px;
+    
+}
+.head{
+    border: 1px solid black;
+    height:80px;
+    display: flex;
+    justify-content: space-between;
+    margin: 12px;
+    background-color: rgb(5, 76, 76);
+}
+.nav > ul{
+    display: flex;
+}
+.nav > ul >li{
+    list-style-type: none;
+    padding: 10px;
+    font-weight: 600;
+    color: white;
+}
+.cards{
+    width: 208px;
+    height: 350px;
+    padding: 8px;
+    border: 1px solid black;
+    margin: 12px;
+}
+.cards > img{
+    width:100%;
+    height: 140px;
+}
+.RestruantList{
+    display: flex;
+    flex-wrap: wrap;
 }
