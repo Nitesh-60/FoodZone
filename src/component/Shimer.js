@@ -9,66 +9,17 @@ const Shimer = ({
 }) => {
   return (
     <div className="RestruantList">
-      <div className="cards">
+    
+    {Array(12)
+    .fill("")
+    .map((e,index)=>(
+    <div key={index} className="cards">
           <div ><Skeleton className="img-shimmer" /></div>
           <h2><Skeleton /></h2>
           <h3><Skeleton /></h3>
           <h4><Skeleton /></h4>
       </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
-      <div className="cards">
-          <div ><Skeleton className="img-shimmer" /></div>
-          <h2><Skeleton /></h2>
-          <h3><Skeleton /></h3>
-          <h4><Skeleton /></h4>
-      </div>
+      ))}  
     </div>
   );
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 import { burgerKing } from '../constant'
+import logo from "../assets/image/logo.png"
+import { Link } from 'react-router-dom'
 
 
 const title = (
     <a href="/">
         <img
             className="logo"
-            src="https://www.shutterstock.com/image-vector/food-logo-smile-label-company-260nw-1271590297.jpg"
+            src={logo}
         ></img>
     </a>
 )
@@ -17,9 +19,9 @@ const Header = () => {
             {title}
             <div className="nav">
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/about'>About Us</Link></li>
+                    <li><Link to='/contact'>Contact</Link></li>
                     <li>Cart</li>
                 </ul>
             </div>

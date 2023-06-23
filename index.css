@@ -24,16 +24,20 @@
     font-weight: 600;
     color: white;
 }
+
 .cards{
     width: 208px;
     height: 350px;
     padding: 8px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    box-shadow: 4px 4px 4px 4px grey;
     margin: 12px;
+    border-radius: 16px;
 }
 .cards > img{
     width:100%;
     height: 140px;
+    border-radius: 16px;
 }
 .RestruantList{
     display: flex;

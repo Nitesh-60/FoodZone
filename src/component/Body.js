@@ -3,6 +3,7 @@ import Shimer from './Shimer';
 import { useState, useEffect } from "react";
 import { restruantList } from '../constant';
 import { RestruantCards } from './RestruantCard';
+import { Link } from 'react-router-dom';
 
 
   function filterSearch(searchText,newRestruants){
@@ -60,7 +61,7 @@ const Body = () => {
           </div>
           <div className="RestruantList">
           {filteredRestruants.map((restruant)=>{
-            return <RestruantCards {...restruant.data} key = {restruant.data.id}/>
+            return <Link key = {restruant.data.id} to={"/restruant/" + restruant.data.id}><RestruantCards {...restruant.data} /></Link>
           })}
           </div>
         </>
