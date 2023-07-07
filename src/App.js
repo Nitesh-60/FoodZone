@@ -8,6 +8,7 @@ import Footer from "./component/Footer";
 import Error from "./component/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./component/Contact";
+import Github from "./component/Github";
 import RestruantMenu from "./component/RestruantMenu";
 
 const AppLayout = () =>{
@@ -37,6 +38,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />,
+            },
+            {
+                path: "/github",
+                element: <Github />,
             },
             {
                 path: "/restruant/:id",
