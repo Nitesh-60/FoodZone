@@ -5,7 +5,7 @@ import { restruantList } from '../constant';
 import { RestruantCards } from './RestruantCard';
 import { Link } from 'react-router-dom';
 import { filterSearch } from './utils/helper';
-
+import useOnline from "./utils/useOnline";
 
 const Body = () => {
   const [allRestruants,setAllRestruants] = useState([]);
@@ -15,6 +15,12 @@ const Body = () => {
   useEffect(()=>{
     getRestruants();
   }, []);
+  
+  const status = useOnline();
+
+  if(!status){
+    return <h1>you are Offline, check your internet connection</h1>
+  }
 
   async function getRestruants(){
     const data = await fetch(
@@ -34,10 +40,10 @@ const Body = () => {
     
     return (allRestruants.length === 0) ? <Shimer /> : (
         <>
-          <div className="search-div">
+          <div className="p-2 m-2 bg-green-50 flex justify-center">
             <input 
+            className="h-9 p-2 w-80 mr-3"
             type="text" 
-            className="srch" 
             placeholder="Search Here" 
             value={searchText}
             onChange = {(e)=>{
@@ -45,7 +51,7 @@ const Body = () => {
             }}
             ></input>
             <button 
-            className="search-btn"
+            className="bg-red-400 p-2"
             onClick={()=>{
               // filter the data
               const data = filterSearch(searchText,allRestruants);
@@ -53,8 +59,8 @@ const Body = () => {
               setFilteredRestruants(data);
             }}
             >Search</button>
-          </div>
-          {allRestruants.length === 0 ? (<Shimer /> ):(<div className="RestruantList">
+          </div >
+          {allRestruants.length === 0 ? (<Shimer /> ):(<div className="flex flex-wrap">
           {filteredRestruants.map((restruant)=>{
             return <Link key = {restruant.data.id} to={"/restruant/" + restruant.data.id}><RestruantCards {...restruant.data} /></Link>
           })}

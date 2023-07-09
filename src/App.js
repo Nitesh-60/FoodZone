@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Body from "./component/Body";
@@ -10,6 +10,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./component/Contact";
 import Github from "./component/Github";
 import RestruantMenu from "./component/RestruantMenu";
+import { Suspense } from "react";
+
+const Instamart = lazy(()=>import('./component/Instamart'))
 
 const AppLayout = () =>{
     return(
@@ -46,6 +49,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restruant/:id",
                 element: <RestruantMenu />,
+            },
+            {
+                path: "/instamart",
+                element: <Suspense><Instamart /></Suspense>,
             },
         ]
     },
