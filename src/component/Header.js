@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from "../assets/image/logo.png"
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 const title = (
@@ -13,6 +14,8 @@ const title = (
 )
 
 const Header = () => {
+    const cartItems = useSelector((store) => store.cart.items)
+    console.log(cartItems)
   return (
     <div className="flex justify-between bg-green-50 h-20 mx-2">
             {title}
@@ -23,7 +26,9 @@ const Header = () => {
                     <li className='px-2'><Link to='/contact' className='nav-link'>Contact</Link></li>
                     <li className='px-2'><Link to='/github' className='nav-link'>Github</Link></li>
                     <li className='px-2'><Link to='/instamart' className='nav-link'>Instamart</Link></li>
-                    <li className='px-2'>Cart</li>
+                    <li className='px-2'><Link to='/cart' className='nav-link'>Cart - {cartItems.length} items </Link></li>
+                    <li className='px-2'><Link to='/SignUp' className='nav-link'>Sign UP</Link></li>
+
                 </ul>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { RES_MENU_URL } from "../../constant";
+import { RES_MENU_URL, RES_MENU_URL_COMPLETE } from "../../constant";
 
 const useRestruant = (id) => {
     const [restruant, setRestruant] = useState(null);
@@ -9,9 +9,9 @@ const useRestruant = (id) => {
     },[])
 
     async function getRestruantInfo(){
-        const data = await fetch(RES_MENU_URL + id)
+        const data = await fetch(RES_MENU_URL + id + RES_MENU_URL_COMPLETE)
         const json = await data.json();
-        console.log(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.Regular?.cards[2]?.card?.card?.itemCards[0]?.card);
+        console.log(json);
         setRestruant(json?.data?.cards[0]?.card?.card?.info);
     } 
 
