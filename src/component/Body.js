@@ -5,13 +5,16 @@ import { RestruantCards } from './RestruantCard';
 import { Link } from 'react-router-dom';
 import { filterSearch } from './utils/helper';
 import useOnline from "./utils/useOnline";
+import { useDispatch } from 'react-redux';
+import { addRestruantMenuList } from './utils/restruantMenusSlice';
+import InterestMenu from './InterestMenu';
 
 const Body = () => {
   const [allRestruants, setAllRestruants] = useState([]);
   const [filteredRestruants, setFilteredRestruants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-
+  const dispatch = useDispatch()
 
   const status = useOnline();
 
@@ -27,7 +30,8 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.3664631&lng=72.8155136&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+
+      dispatch(addRestruantMenuList(json?.data))
     setAllRestruants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestruants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
@@ -58,9 +62,14 @@ const Body = () => {
             // return the data
             setFilteredRestruants(data);
           }}
-        >Search</button>
+        >Search</button>  
       </div >
-      {allRestruants.length === 0 ? (<Shimer />) : (<div className="flex flex-wrap">
+
+      <div>
+          <InterestMenu />
+      </div>
+        <h1 className='px-16 pb-4 font-bold text-2xl'>Restaurants with online food delivery in Mumbai</h1>
+      {allRestruants.length === 0 ? (<Shimer />) : (<div className="flex flex-wrap px-16 pb-4">
         {filteredRestruants.map((restruant) => {
           return <Link key={restruant?.info.id} to={"/restruant/" + restruant?.info.id}><RestruantCards {...restruant?.info} /></Link>
         })}
